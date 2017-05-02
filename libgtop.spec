@@ -4,7 +4,7 @@
 #
 Name     : libgtop
 Version  : 2.36.0
-Release  : 1
+Release  : 2
 URL      : https://download.gnome.org/sources/libgtop/2.36/libgtop-2.36.0.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.36/libgtop-2.36.0.tar.xz
 Summary  : LibGTop library
