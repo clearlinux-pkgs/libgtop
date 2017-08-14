@@ -1,0 +1,24 @@
+Configure miss: x86_64-generic-linux-gnu-as
+Configure miss: whether we need libgtop
+Configure miss: vmgetinfo in -lperfstat
+Configure miss: vm_statistics in -lmach
+Configure miss: whether program_invocation_name must be declared
+Configure miss: "for sun_len member in struct sockaddr_un"
+Configure miss: sys/fstyp.h usability
+Configure miss: sys/fstyp.h presence
+Configure miss: sys/fstyp.h
+Configure miss: mnttab.h usability
+Configure miss: mnttab.h presence
+Configure miss: mnttab.h
+Configure miss: sys/filsys.h usability
+Configure miss: sys/filsys.h presence
+Configure miss: sys/filsys.h
+Configure miss: sys/fs_types.h usability
+Configure miss: sys/fs_types.h presence
+Configure miss: sys/fs_types.h
+Configure miss: sys/fs/s5param.h usability
+Configure miss: sys/fs/s5param.h presence
+Configure miss: sys/fs/s5param.h
+Configure miss: listmntent
+Configure miss: listmntent of Cray/Unicos-9
+Configure miss: statfs that truncates block counts
