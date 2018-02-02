@@ -4,7 +4,7 @@
 #
 Name     : libgtop
 Version  : 2.38.0
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/libgtop/2.38/libgtop-2.38.0.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.38/libgtop-2.38.0.tar.xz
 Summary  : LibGTop library
