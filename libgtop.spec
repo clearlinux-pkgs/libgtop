@@ -4,14 +4,15 @@
 #
 Name     : libgtop
 Version  : 2.40.0
-Release  : 8
+Release  : 9
 URL      : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
-Summary  : A library for collecting system monitoring data
+Summary  : LibGTop library
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: libgtop-bin = %{version}-%{release}
 Requires: libgtop-data = %{version}-%{release}
+Requires: libgtop-info = %{version}-%{release}
 Requires: libgtop-lib = %{version}-%{release}
 Requires: libgtop-license = %{version}-%{release}
 Requires: libgtop-locales = %{version}-%{release}
@@ -68,9 +69,18 @@ dev components for the libgtop package.
 %package doc
 Summary: doc components for the libgtop package.
 Group: Documentation
+Requires: libgtop-info = %{version}-%{release}
 
 %description doc
 doc components for the libgtop package.
+
+
+%package info
+Summary: info components for the libgtop package.
+Group: Default
+
+%description info
+info components for the libgtop package.
 
 
 %package lib
@@ -101,13 +111,15 @@ locales components for the libgtop package.
 
 %prep
 %setup -q -n libgtop-2.40.0
+cd %{_builddir}/libgtop-2.40.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557015745
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1573789570
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -119,18 +131,18 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1557015745
+export SOURCE_DATE_EPOCH=1573789570
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libgtop
-cp COPYING %{buildroot}/usr/share/package-licenses/libgtop/COPYING
-cp copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/copyright.txt
+cp %{_builddir}/libgtop-2.40.0/COPYING %{buildroot}/usr/share/package-licenses/libgtop/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1
+cp %{_builddir}/libgtop-2.40.0/copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/25953e10e4c2bf3c77db0e6e5f3f9eb9d502d747
 %make_install
 %find_lang libgtop
 
@@ -196,7 +208,6 @@ cp copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/copyright.txt
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/info/*
 /usr/share/gtk-doc/html/libgtop/home.png
 /usr/share/gtk-doc/html/libgtop/index.html
 /usr/share/gtk-doc/html/libgtop/left-insensitive.png
@@ -246,6 +257,10 @@ cp copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/copyright.txt
 /usr/share/gtk-doc/html/libgtop/up-insensitive.png
 /usr/share/gtk-doc/html/libgtop/up.png
 
+%files info
+%defattr(0644,root,root,0755)
+/usr/share/info/libgtop2.info
+
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libgtop-2.0.so.11
@@ -253,8 +268,8 @@ cp copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/copyright.txt
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libgtop/COPYING
-/usr/share/package-licenses/libgtop/copyright.txt
+/usr/share/package-licenses/libgtop/25953e10e4c2bf3c77db0e6e5f3f9eb9d502d747
+/usr/share/package-licenses/libgtop/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1
 
 %files locales -f libgtop.lang
 %defattr(-,root,root,-)
