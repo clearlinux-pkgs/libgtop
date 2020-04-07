@@ -4,7 +4,7 @@
 #
 Name     : libgtop
 Version  : 2.40.0
-Release  : 9
+Release  : 10
 URL      : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Summary  : LibGTop library
@@ -118,14 +118,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573789570
+export SOURCE_DATE_EPOCH=1586240920
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -138,7 +138,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1573789570
+export SOURCE_DATE_EPOCH=1586240920
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libgtop
 cp %{_builddir}/libgtop-2.40.0/COPYING %{buildroot}/usr/share/package-licenses/libgtop/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1

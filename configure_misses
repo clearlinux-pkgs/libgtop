@@ -1,4 +1,7 @@
 Configure miss: x86_64-generic-linux-gnu-as
+Configure miss: linux/isdn.h usability
+Configure miss: linux/isdn.h presence
+Configure miss: linux/isdn.h
 Configure miss: vmgetinfo in -lperfstat
 Configure miss: vm_statistics in -lmach
 Configure miss: whether program_invocation_name must be declared
