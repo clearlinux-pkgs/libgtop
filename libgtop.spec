@@ -4,7 +4,7 @@
 #
 Name     : libgtop
 Version  : 2.40.0
-Release  : 11
+Release  : 12
 URL      : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Summary  : LibGTop library
