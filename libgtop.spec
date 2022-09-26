@@ -4,7 +4,7 @@
 #
 Name     : libgtop
 Version  : 2.40.0
-Release  : 13
+Release  : 14
 URL      : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 Summary  : LibGTop library
@@ -118,15 +118,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586240920
+export SOURCE_DATE_EPOCH=1664157733
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -135,14 +135,14 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1586240920
+export SOURCE_DATE_EPOCH=1664157733
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libgtop
-cp %{_builddir}/libgtop-2.40.0/COPYING %{buildroot}/usr/share/package-licenses/libgtop/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1
-cp %{_builddir}/libgtop-2.40.0/copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/25953e10e4c2bf3c77db0e6e5f3f9eb9d502d747
+cp %{_builddir}/libgtop-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libgtop/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1 || :
+cp %{_builddir}/libgtop-%{version}/copyright.txt %{buildroot}/usr/share/package-licenses/libgtop/25953e10e4c2bf3c77db0e6e5f3f9eb9d502d747 || :
 %make_install
 %find_lang libgtop
 
