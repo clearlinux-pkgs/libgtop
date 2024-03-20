@@ -1,0 +1,1 @@
+chmod -s %{buildroot}*/usr/libexec/libgtop_server2

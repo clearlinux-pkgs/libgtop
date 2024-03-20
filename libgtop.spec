@@ -7,7 +7,7 @@
 #
 Name     : libgtop
 Version  : 2.41.3
-Release  : 16
+Release  : 17
 URL      : https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz
 Source0  : https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz
 Summary  : LibGTop library
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1710949361
+export SOURCE_DATE_EPOCH=1710950529
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -182,7 +182,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1710949361
+export SOURCE_DATE_EPOCH=1710950529
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libgtop
 cp %{_builddir}/libgtop-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libgtop/68c94ffc34f8ad2d7bfae3f5a6b996409211c1b1 || :
@@ -195,6 +195,9 @@ popd
 GOAMD64=v2
 %make_install
 %find_lang libgtop
+## install_append content
+chmod -s %{buildroot}*/usr/libexec/libgtop_server2
+## install_append end
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
@@ -317,6 +320,7 @@ GOAMD64=v2
 %files libexec
 %defattr(-,root,root,-)
 /V3/usr/libexec/libgtop_daemon2
+/V3/usr/libexec/libgtop_server2
 /usr/libexec/libgtop_daemon2
 /usr/libexec/libgtop_server2
 
