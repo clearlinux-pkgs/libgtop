@@ -3,6 +3,8 @@ libgtop-2.0.so.11:glibtop_close
 libgtop-2.0.so.11:glibtop_close_r
 libgtop-2.0.so.11:glibtop_get_cpu
 libgtop-2.0.so.11:glibtop_get_cpu_l
+libgtop-2.0.so.11:glibtop_get_disk
+libgtop-2.0.so.11:glibtop_get_disk_l
 libgtop-2.0.so.11:glibtop_get_fsusage
 libgtop-2.0.so.11:glibtop_get_fsusage_l
 libgtop-2.0.so.11:glibtop_get_loadavg
